@@ -1,8 +1,8 @@
 using System;
 
-namespace Geodesy
+namespace Geodesy.Properties
 {
-    public static class Geodesy
+public static class Geodesy
     {
         public static Point StraightLinear(Point point, Angle dir, double d)
         {
@@ -40,18 +40,18 @@ namespace Geodesy
         
         public static Point StraightAngular(Point a, Angle alpha, Point b, Angle beta)
         {
-            double x = (a.X * ctg(beta) + b.X * ctg(alpha) + b.Y - a.Y) / (ctg(alpha) + ctg(beta));
-            double y = (a.Y * ctg(beta) + b.Y * ctg(alpha) - b.X + a.X) / (ctg(alpha) + ctg(beta));
+            double x = (a.X * Ctg(beta) + b.X * Ctg(alpha) + b.Y - a.Y) / (Ctg(alpha) + Ctg(beta));
+            double y = (a.Y * Ctg(beta) + b.Y * Ctg(alpha) - b.X + a.X) / (Ctg(alpha) + Ctg(beta));
             
             return new Point(x, y);
         }
 
         public static Point ReversedAngular(Point a, Point b, Point c, Angle alpha, Angle beta)
         {
-            double ctgGamma = ((b.Y - a.Y) * ctg(alpha) - (c.Y - b.Y) * ctg(beta) + (a.X - c.X))
-                              / ((b.X - a.X) * ctg(alpha) - (c.X - b.X) * ctg(beta) - (a.Y - c.Y));
-            double z1 = (b.Y - a.Y) * (ctg(alpha) - ctgGamma) - (b.X - a.X) * (1.0 + ctg(alpha) * ctgGamma);
-            double z2 = (c.Y - b.Y) * (ctg(beta) + ctgGamma) + (c.X - b.X) * (1.0 - ctg(beta) * ctgGamma);
+            double ctgGamma = ((b.Y - a.Y) * Ctg(alpha) - (c.Y - b.Y) * Ctg(beta) + (a.X - c.X))
+                              / ((b.X - a.X) * Ctg(alpha) - (c.X - b.X) * Ctg(beta) - (a.Y - c.Y));
+            double z1 = (b.Y - a.Y) * (Ctg(alpha) - ctgGamma) - (b.X - a.X) * (1.0 + Ctg(alpha) * ctgGamma);
+            double z2 = (c.Y - b.Y) * (Ctg(beta) + ctgGamma) + (c.X - b.X) * (1.0 - Ctg(beta) * ctgGamma);
             double z = (z1 + z2) / 2;
 
             double dx = z / (1 + ctgGamma * ctgGamma);
@@ -59,9 +59,7 @@ namespace Geodesy
 
             return new Point(b.X + dx, b.Y + dy);
         }
-
-        private static double ctg(double rad) => 1.0 / Math.Tan(rad);
-
-        private static double ctg(Angle angle) => 1.0 / Math.Tan(angle.ToRad());
+        
+        private static double Ctg(Angle angle) => 1.0 / Math.Tan(angle.ToRad());
     }
 }

@@ -1,6 +1,6 @@
-namespace Geodesy
+namespace Geodesy.Properties
 {
-    public struct Point
+    public class Point
     {
         public double X;
         public double Y;

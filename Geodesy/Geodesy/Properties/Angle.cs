@@ -1,6 +1,6 @@
 using System;
 
-namespace Geodesy
+namespace Geodesy.Properties
 {
     public class Angle
     {

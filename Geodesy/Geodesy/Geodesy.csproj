@@ -4,8 +4,8 @@
     <PropertyGroup>
         <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
         <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-        <ProjectGuid>{87842E6C-7C6F-4ED0-8232-29B8CD6D7AFD}</ProjectGuid>
-        <OutputType>Exe</OutputType>
+        <ProjectGuid>{63BA0FD1-AA2F-4368-8AB3-8AB035553B3A}</ProjectGuid>
+        <OutputType>Library</OutputType>
         <AppDesignerFolder>Properties</AppDesignerFolder>
         <RootNamespace>Geodesy</RootNamespace>
         <AssemblyName>Geodesy</AssemblyName>
@@ -38,11 +38,10 @@
         <Reference Include="System.Xml" />
     </ItemGroup>
     <ItemGroup>
-        <Compile Include="Angle.cs" />
-        <Compile Include="Geodesy.cs" />
-        <Compile Include="Point.cs" />
-        <Compile Include="Program.cs" />
+        <Compile Include="Properties\Angle.cs" />
         <Compile Include="Properties\AssemblyInfo.cs" />
+        <Compile Include="Properties\Geodesy.cs" />
+        <Compile Include="Properties\Point.cs" />
     </ItemGroup>
     <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
     <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
